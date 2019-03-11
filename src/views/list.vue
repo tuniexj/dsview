@@ -1,16 +1,8 @@
 /**
 * Created by xiejun on 2019/03/04.
-* home
+* 列表
 */
 <template>
-  <div class="home">
-    <h2>数据结构</h2>
-    <ul>
-      <li>列表</li>
-      <li>树</li>
-      <li>图</li>
-    </ul>
-  </div>
 </template>
 
 <script>
@@ -32,7 +24,4 @@ export default {
 </script>
 
 <style lang="less" scoped>
-.home {
-  text-align: left;
-}
 </style>
