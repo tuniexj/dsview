@@ -1,0 +1,12 @@
+@padding: 15px;
+.padding-h(@padding:@padding) {
+  padding-left: @padding;
+  padding-right: @padding;
+}
+.padding-v(@padding:@padding) {
+  padding-top: @padding;
+  padding-bottom: @padding;
+}
+.padding(@padding:@padding, @rest...) {
+  padding: @padding @rest;
+}

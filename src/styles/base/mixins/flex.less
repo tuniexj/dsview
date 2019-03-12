@@ -1,0 +1,30 @@
+// 水平方向各项居中
+.flex-hor-center() {
+  display: flex;
+  align-items: center;
+}
+// 水平方向各项顶部对齐
+.flex-hor-top() {
+  display: flex;
+  align-items: flex-start;
+}
+// 水平方向各项底部对齐
+.flex-hor-bottom() {
+  display: flex;
+  align-items: flex-end;
+}
+// 垂直水平居中
+.flex-hor-ver-center() {
+  .flex-hor-center();
+  justify-content: center;
+}
+// 垂直方向各项居中
+.flex-ver-center() {
+  .flex-hor-center();
+  flex-direction: column;
+}
+// .flex-
+// 默认为1
+.flex-n(@flex:1) {
+  flex: @flex;
+}

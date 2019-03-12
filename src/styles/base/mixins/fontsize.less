@@ -1,0 +1,30 @@
+.fs(@size) {
+  @font-size: @size;
+  font-size: @font-size;
+}
+.fs-speed(@speed:2px) {
+  @font-speed: @speed;
+}
+.fs-bigger(@speed:2px) {
+  .fs-speed(@speed);
+  .fs(@font-size + @font-speed);
+}
+.fs-smaller(@speed:2px) {
+  .fs-speed(@speed);
+  .fs(@font-size - @font-speed);
+}
+.fs-title(@size:18px) {
+  .fs(@size);
+}
+.fs-btn(@size:16px) {
+  .fs(@size);
+}
+.fs-label(@size:16px) {
+  .fs(@size);
+}
+.fs-list(@size:14px) {
+  .fs(@size);
+}
+.fs-tip(@size:12px) {
+  .fs(@size);
+}

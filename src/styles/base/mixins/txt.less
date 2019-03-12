@@ -1,0 +1,17 @@
+.txt-line(@line:2) {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: @line;
+  overflow: hidden;
+}
+.txt-1-line {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.txt-2-line {
+  .txt-line(2);
+}
+.txt-3-line {
+  .txt-line(3);
+}

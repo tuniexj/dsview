@@ -1,0 +1,34 @@
+.border-content(@color) {
+  display: block;
+  position: absolute;
+  left: 0;
+  right: 0;
+  border-top: 1px solid @color;
+  content: ' ';
+}
+
+.border-1px-bottom(@color:@color-border) {
+  &::after {
+    .border-content(@color);
+    bottom: 0;
+    @media screen and (-webkit-min-device-pixel-ratio: 1.5) {
+      transform: scaleY(0.7);
+    }
+    @media screen and (-webkit-min-device-pixel-ratio: 2) {
+      transform: scaleY(0.5);
+    }
+  }
+}
+
+.border-1px-top(@color:@color-border) {
+  &::before {
+    .border-content(@color);
+    top: 0;
+    @media screen and (-webkit-min-device-pixel-ratio: 1.5) {
+      transform: scaleY(0.7);
+    }
+    @media screen and (-webkit-min-device-pixel-ratio: 2) {
+      transform: scaleY(0.5);
+    }
+  }
+}
