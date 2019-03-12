@@ -3,48 +3,48 @@
 * home
 */
 <template>
-  <div class="home">
-    <h2>数据结构演示</h2>
-    <div class="btn-list">
-      <ds-button>线性表</ds-button>
-      <ds-button>栈</ds-button>
-      <ds-button>队列</ds-button>
-      <ds-button>二叉树</ds-button>
-      <ds-button>图</ds-button>
-    </div>
-  </div>
+  <ds-menu title="数据结构演示" @tap="onTap" @afterLeave="onAfterLeave" :listData="listData"></ds-menu>
 </template>
 
 <script>
-import dsButton from '@/components/dsButton'
+import dsMenu from '@/components/dsMenu'
 export default {
-  components: { dsButton },
+  components: { dsMenu },
   name: '',
   data() {
-    return {}
+    return {
+      listData: []
+    }
   },
   props: {},
   computed: {},
-  created() {},
+  created() {
+    this.listData.push({ name: 'list', desc: '线性表' })
+    this.listData.push({ name: 'stack', desc: '栈' })
+    this.listData.push({ name: 'queue', desc: '队列' })
+    this.listData.push({ name: 'binaryTree', desc: '二叉树' })
+    this.listData.push({ name: 'map', desc: '图' })
+
+    this.listDataNames = this.listData.map(data => data.name)
+  },
   mounted() {},
   watch: {},
-  methods: {}
+  methods: {
+    onTap(name) {
+      let index = this.listDataNames.indexOf(name)
+      if (index < 0) {
+        // 不存在的name
+      } else {
+        this.listData = []
+        this.path = `/${name}`
+      }
+    },
+    onAfterLeave() {
+      this.$router.push({ path: this.path })
+    }
+  }
 }
 </script>
 
 <style lang="less" scoped>
-@import '~@/styles/base/index.less';
-.home {
-  text-align: left;
-  & h2 {
-    .padding();
-    .fs-title();
-    .fs-bigger();
-  }
-  .btn-list {
-    .ds-button:nth-child(even) {
-      background-color: white;
-    }
-  }
-}
 </style>

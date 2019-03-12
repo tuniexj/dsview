@@ -4,6 +4,16 @@ import home from './views/home.vue'
 
 Vue.use(Router)
 
+let createRouter = key => {
+  return {
+    path: '/' + key,
+    name: key,
+    component: () => import(`./views/${key}.vue`)
+  }
+}
+let views = ['list', 'stack', 'queue', 'binaryTree', 'map']
+let viewRoutes = views.map(value => createRouter(value))
+
 export default new Router({
   routes: [
     {
@@ -11,13 +21,6 @@ export default new Router({
       name: 'home',
       component: home
     },
-    {
-      path: '/about',
-      name: 'about',
-      // route level code-splitting
-      // this generates a separate chunk (about.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
-      component: () => import(/* webpackChunkName: "about" */ './views/list.vue')
-    }
+    ...viewRoutes
   ]
 })
