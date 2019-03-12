@@ -4,17 +4,21 @@
 */
 <template>
   <div class="home">
-    <h2>数据结构</h2>
-    <ul>
-      <li>列表</li>
-      <li>树</li>
-      <li>图</li>
-    </ul>
+    <h2>数据结构演示</h2>
+    <div class="btn-list">
+      <ds-button>线性表</ds-button>
+      <ds-button>栈</ds-button>
+      <ds-button>队列</ds-button>
+      <ds-button>二叉树</ds-button>
+      <ds-button>图</ds-button>
+    </div>
   </div>
 </template>
 
 <script>
+import dsButton from '@/components/dsButton'
 export default {
+  components: { dsButton },
   name: '',
   data() {
     return {}
@@ -23,16 +27,24 @@ export default {
   computed: {},
   created() {},
   mounted() {},
-  onLoad() {},
-  onShow() {},
   watch: {},
-  methods: {},
-  components: {}
+  methods: {}
 }
 </script>
 
 <style lang="less" scoped>
+@import '~@/styles/base/index.less';
 .home {
   text-align: left;
+  & h2 {
+    .padding();
+    .fs-title();
+    .fs-bigger();
+  }
+  .btn-list {
+    .ds-button:nth-child(even) {
+      background-color: white;
+    }
+  }
 }
 </style>

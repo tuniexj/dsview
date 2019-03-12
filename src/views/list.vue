@@ -3,6 +3,7 @@
 * 列表
 */
 <template>
+  <div class="list"></div>
 </template>
 
 <script>
@@ -15,8 +16,6 @@ export default {
   computed: {},
   created() {},
   mounted() {},
-  onLoad() {},
-  onShow() {},
   watch: {},
   methods: {},
   components: {}
