@@ -22,7 +22,7 @@
         </ds-menu-button>
       </transition-group>
     </div>
-    
+    <slot/>
   </div>
 </template>
 
@@ -85,21 +85,30 @@ export default {
     },
     onBeforeEnter(el) {
       el.style.opacity = 0
-      el.style.height = 0
+      // el.style.height = 0
+      el.style.width = 0
     },
     onEnter(el, done) {
-      let delay = el.dataset.index * 50
+      let delay = el.dataset.index * 40
       setTimeout(() => {
-        Velocity(el, { opacity: 1, height: '40px' }, { complete: done })
+        Velocity(el, { opacity: 1, height: '40px', width: '100%' }, { complete: done })
       }, delay)
     },
     onLeave(el, done) {
-      let delay = el.dataset.index * 150
+      let delay = (this.listNum - el.dataset.index) * 60
       setTimeout(function() {
-        Velocity(el, { opacity: 0, height: 0 }, { complete: done })
+        Velocity(
+          el,
+          { opacity: 0, width: 0 },
+          {
+            complete: () => {
+              Velocity(el, { height: 0 }, { complete: done })
+            }
+          }
+        )
       }, delay)
     },
-    onAfterLeave(el) {
+    onAfterLeave() {
       if (!this.afterLeaveNum) {
         this.afterLeaveNum = 0
       }
@@ -133,9 +142,6 @@ export default {
     position: relative;
     border-top: 1px solid @color-border;
     border-bottom: 1px solid @color-border;
-    .ds-button:nth-child(even) {
-      background-color: white;
-    }
   }
 }
 </style>

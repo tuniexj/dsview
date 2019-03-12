@@ -27,11 +27,13 @@ export default {
 <style lang="less" scoped>
 @import '~@/styles/base/index.less';
 .ds-button {
+  position: relative;
   background: @color-btn;
   margin-left: @padding;
   height: 40px;
   line-height: 40px;
   .padding-h(10px);
   .fs-btn();
+  .border-1px-bottom(white);
 }
 </style>
