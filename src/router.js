@@ -1,6 +1,8 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import home from './views/home.vue'
+import level from './views/level.vue'
+import dsview from './views/dsview.vue'
 
 Vue.use(Router)
 
@@ -11,7 +13,7 @@ let createRouter = key => {
     component: () => import(`./views/${key}.vue`)
   }
 }
-let views = ['list', 'stack', 'queue', 'binaryTree', 'map']
+let views = []
 let viewRoutes = views.map(value => createRouter(value))
 
 export default new Router({
@@ -20,6 +22,16 @@ export default new Router({
       path: '/',
       name: 'home',
       component: home
+    },
+    {
+      path: '/home/:name',
+      name: 'level',
+      component: level
+    },
+    {
+      path: '/dsview',
+      name: 'dsview',
+      component: dsview
     },
     ...viewRoutes
   ]

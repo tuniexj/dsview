@@ -1,9 +1,11 @@
 /**
-* Created by xiejun on 2019/03/12.
-* 返回
+* Created by xiejun on 2019/03/14.
+* dsview menu button
 */
 <template>
-  <div @click="onTap" class="ds-back">返回</div>
+  <div class="ds-dsview-menu-button">
+    <slot/>
+  </div>
 </template>
 
 <script>
@@ -18,23 +20,19 @@ export default {
   created() {},
   mounted() {},
   watch: {},
-  methods: {
-    onTap() {
-      this.$emit('back')
-    }
-  }
+  methods: {}
 }
 </script>
 
 <style lang="less" scoped>
 @import '~@/styles/base/index.less';
-.ds-back {
+.ds-dsview-menu-button {
   display: inline-block;
-  background: @color-main;
-  color: white;
-  .fs-btn();
+  padding: 5px;
+  background: @color-btn;
   border-radius: 4px;
-  padding: 5px @padding;
   cursor: pointer;
+
+  .fs-btn();
 }
 </style>

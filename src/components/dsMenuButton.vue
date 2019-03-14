@@ -35,5 +35,6 @@ export default {
   .padding-h(10px);
   .fs-btn();
   .border-1px-bottom(white);
+    cursor: pointer;
 }
 </style>
